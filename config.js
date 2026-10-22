@@ -33,10 +33,10 @@ window.SITE_CONFIG = {
     {
       key: "agent",
       type: "エージェント",
-      name: "シュトキャリ",
-      desc: "担当者が面談をして、求人の紹介やES・面接の準備を手伝ってくれる就活エージェントです。",
+      name: "X-career",
+      desc: "新卒の就活に特化した就職エージェントです。担当者との面談で、求人の紹介やES・面接の準備を手伝ってもらえます。",
       fit: "ひとりで進めるのが不安な人、相談しながら決めたい人",
-      url: "https://www.medipartner.jp/clickJP.php?APID=40556&affID=8148",
+      url: "https://www.medipartner.jp/click.php?APID=46287&affID=8148",
       subParam: ""
     }
   ]
