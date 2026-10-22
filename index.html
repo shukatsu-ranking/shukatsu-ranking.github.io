@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>28卒の就活まとめ｜人気企業TOP20と今やること</title>
-<meta name="description" content="TikTokで紹介した就活情報の続き。人気企業ランキングTOP20（文系・理系）、28卒の日程、冬インターン前のチェックリスト。">
+<title>28卒の就活まとめ｜人気企業ランキングTOP20</title>
+<meta name="description" content="TikTokで紹介した就活情報の続き。人気企業ランキングTOP20（文系・理系）と28卒の日程。">
 <meta name="robots" content="noindex">
 <style>
 :root{
@@ -45,14 +45,6 @@ ol.rank .v{font-size:12px;color:var(--sub);white-space:nowrap}
 .fact{border-left:4px solid var(--accent);background:#fafbfe;padding:10px 12px;border-radius:0 10px 10px 0}
 .fact b{display:block;font-size:15px}
 .fact span{font-size:14px;color:var(--sub)}
-/* チェックリスト */
-ul.check{list-style:none;margin-top:12px}
-ul.check li{border-bottom:1px solid var(--line)}
-ul.check label{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;cursor:pointer}
-ul.check input{width:22px;height:22px;margin-top:2px;flex:0 0 22px;accent-color:var(--navy)}
-ul.check .t{font-weight:700}
-ul.check .d{display:block;font-size:13px;color:var(--sub);font-weight:400}
-.progress{margin-top:10px;font-size:13px;color:var(--sub)}
 /* サービス */
 .svc{border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:12px}
 .svc .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -73,12 +65,11 @@ footer li{margin-top:4px}
 
 <header><div class="in">
   <span class="tag">28卒向け｜2026年10月版</span>
-  <h1>就活まとめ：人気企業TOP20と、冬までに今やること</h1>
+  <h1>就活まとめ：先輩が選んだ人気企業TOP20</h1>
   <p>TikTokで紹介した内容の続きです。登録しなくても、すべて読めます。</p>
   <nav>
     <a href="#rank">人気企業TOP20</a>
     <a href="#schedule">28卒の日程</a>
-    <a href="#check">今やること</a>
     <a href="#service">就活サービスの選び方</a>
   </nav>
 </div></header>
@@ -106,13 +97,6 @@ footer li{margin-top:4px}
       <span>27卒のデータです。文系は理系より内々定が出るのが遅い傾向もあります。</span></div>
   </div>
   <p class="note">出典：<a href="https://www.cas.go.jp/jp/seisaku/shushoku_katsudou/pdf/r071226_siryou.pdf" target="_blank" rel="noopener">内閣官房 資料（2025年12月26日）</a>／<a href="https://prtimes.jp/main/html/rd/p/000001557.000013485.html" target="_blank" rel="noopener">学情 28年卒採用の企業調査（450社、2026年8月18日公表）</a>／<a href="https://resemom.jp/article/2025/12/04/84204.html" target="_blank" rel="noopener">キャリタス 27卒調査（2025年11月14〜21日）</a></p>
-</section>
-
-<section id="check">
-  <h2>冬インターンの締切前にやること5つ<small>チェックはこの端末に保存されます</small></h2>
-  <ul class="check" id="checkList"></ul>
-  <p class="progress" id="progress"></p>
-  <p class="note">冬インターンの応募は11〜12月が中心という一般的な目安です。締切は会社ごとに違うので、必ず各社の採用ページで確認してください。</p>
 </section>
 
 <section id="service">
@@ -161,32 +145,6 @@ footer li{margin-top:4px}
     b.addEventListener("click", function(){ showRank(b.dataset.k); });
   });
   showRank("bun");
-
-  // ── チェックリスト ──
-  var CHECK = [
-    ["志望業界を2〜3個に絞る", "志望業界がはっきり決まっている28卒はまだ28.8%（キャリタス 2026年10月6日公表）"],
-    ["自己PRとガクチカを200字で書いてみる", "状況→課題→自分の行動→結果→学び の順に書くとまとまります"],
-    ["Webテストの形式を調べて、練習を始める", "SPI・玉手箱など、会社によって形式が違います"],
-    ["逆求人（スカウト型）サイトのプロフィールを埋める", "早期選考の案内につながることもあります"],
-    ["応募したいインターンの締切を一覧にする", "締切は各社の採用ページで確認"]
-  ];
-  var KEY = "check28_v1", saved = {};
-  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) {}
-  var ul = document.getElementById("checkList");
-  ul.innerHTML = CHECK.map(function(c, i){
-    return '<li><label><input type="checkbox" data-i="' + i + '"' + (saved[i] ? " checked" : "") +
-           '><span><span class="t">' + c[0] + '</span><span class="d">' + c[1] + '</span></span></label></li>';
-  }).join("");
-  function progress(){
-    var n = ul.querySelectorAll("input:checked").length;
-    document.getElementById("progress").textContent = "できた数：" + n + " / " + CHECK.length;
-  }
-  ul.addEventListener("change", function(e){
-    saved[e.target.dataset.i] = e.target.checked;
-    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(err) {}
-    progress();
-  });
-  progress();
 
   // ── 就活サービス（config.js から）──
   var cfg = window.SITE_CONFIG || {services: []};
